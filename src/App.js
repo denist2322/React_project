@@ -10,6 +10,7 @@ function App() {
       return;
     }
     setTodos((currentArray) => [todo, ...currentArray]);
+    // todo로 받은 것을 현재 배열에 있는 것과 함께 setTodos에 보냄
     setTodo("");
   };
   console.log(todos);
@@ -25,6 +26,14 @@ function App() {
         />
         <button>Add To Do</button>
       </form>
+      <hr />
+      <ul>
+        {todos.map((item, index) => (
+          <li key={index}>{item}</li>
+          // 기존의 배열을 사용자 기호에 맞게 바꿈.
+          // key값을 써줘야 console에서 오류가 없다.
+        ))}
+      </ul>
     </div>
   );
 }
